@@ -1,5 +1,3 @@
-
-#include<stdio.h>
 #include<stdlib.h>
 #define BUFF_SIZE 12 // as 12 bytes is max for integer repr
 
@@ -16,7 +14,7 @@ void reverse(char *target, int len)
 char *my_itoa(int nbr)
 {
     int len = 0;
-    char *buff = malloc(sizeof(char) * BUFF_SIZE);;
+    char *buff = malloc(sizeof(char) * BUFF_SIZE);
     int sign = nbr >= 0 ? 1 : -1;
     nbr *= sign;
     do
