@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "../include/linked_list.h"
 
 node_t  *list_create(void *data)
@@ -19,6 +20,7 @@ void    list_destroy(node_t **head, void (*fp)(void *data))
     node_t *p = *head;
     while(p)
     {
+        fp(p->data);
         free(p);
         p = p->next;
     }
@@ -59,19 +61,20 @@ void    *list_pop(node_t **head)
     }
 
     prev->next = NULL;
-    free(current);
+    return current;
 }
 
 void    *list_shift(node_t **head)
 {
-    node_t *curr = head;
+    node_t *curr = *head;
     curr->next = NULL;
-    free(curr);   
+    return curr;
 }
+
 void    *list_remove(node_t **head, int pos)
 {
     int i = 0;
-    node_t *atPos = head;
+    node_t *atPos = *head;
     node_t *prev = NULL;
     while (i != pos)
     {
@@ -82,8 +85,8 @@ void    *list_remove(node_t **head, int pos)
     if (prev != NULL)
     {
         prev->next = NULL;
-        free(atPos);
     }
+    return atPos;
 }
 
 void    list_print(node_t *head)
@@ -91,7 +94,6 @@ void    list_print(node_t *head)
     node_t *node = head;
     while (node != NULL)
     {
-        printf("%s", node->data);
         node = node->next;
     }
 }
