@@ -85,6 +85,7 @@ void    *list_remove(node_t **head, int pos)
     if (prev != NULL)
     {
         prev->next = NULL;
+        free(atPos);
     }
     return atPos;
 }
@@ -94,6 +95,7 @@ void    list_print(node_t *head)
     node_t *node = head;
     while (node != NULL)
     {
+        printf("%p", node->data);
         node = node->next;
     }
 }
