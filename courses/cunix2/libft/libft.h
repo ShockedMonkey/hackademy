@@ -16,8 +16,8 @@ int ft_isascii(int c);
 int ft_toupper(int c);
 int ft_tolower(int c);
 
-int ft_abs(int j);
-div_t ft_div(int num, int denom);
+int ft_abs(int num);
+div_t ft_div(int num, int denominator);
 char *ft_strstr(const char *haystack, const char *needle);
 char *ft_strnstr(const char *haystack, const char *needle, size_t n);
 void *ft_memset(void *s, int c, size_t n);
