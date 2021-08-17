@@ -14,25 +14,25 @@ int compare(const char *s1, const char *s2)
     return *s2 == '\0';
 }
 
-unsigned int my_strlen(const char *s)
+size_t my_strlen(const char *s)
 {
     int len = 0;
     while (s[len])
     {
         len++;
     };
-    return len;
+    return (size_t) len;
 }
 
 char *ft_strnstr(const char *haystack, const char *needle, size_t n)
 {
-    int sub_len = my_strlen(needle);
-    int len = my_strlen(haystack);
+    size_t sub_len = my_strlen(needle);
+    size_t len = my_strlen(haystack);
     if (len < sub_len || len < n || sub_len < n)
     {
         return NULL;
     }
-    for (int i = 0; i < n - sub_len; i++)
+    for (size_t i = 0; i < n - sub_len; i++)
     {
         if (compare(haystack, needle))
         {

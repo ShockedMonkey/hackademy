@@ -2,5 +2,5 @@
 
 int ft_isdigit(int ch)
 {
-    return ch >= '0' && c <= '9';
+    return ch >= '0' && ch <= '9';
 }

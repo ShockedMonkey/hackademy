@@ -20,7 +20,7 @@ char *ft_strstr(const char *haystack, const char *needle)
     {
         if (compare(haystack, needle))
         {
-            return haystack;
+            return (char *) haystack;
         }
         haystack++;
     }
